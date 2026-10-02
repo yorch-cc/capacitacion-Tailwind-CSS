@@ -192,6 +192,9 @@
   .-top-2 {
     top: calc(var(--spacing) * -2);
   }
+  .-top-3 {
+    top: calc(var(--spacing) * -3);
+  }
   .top-2 {
     top: calc(var(--spacing) * 2);
   }
@@ -222,29 +225,17 @@
   .inline-block {
     display: inline-block;
   }
-  .table {
-    display: table;
-  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
-  .w-1 {
-    width: var(--spacing);
-  }
   .w-1\/6 {
     width: calc(1 / 6 * 100%);
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
-  }
-  .w-4\/5 {
-    width: calc(4 / 5 * 100%);
-  }
-  .w-5 {
-    width: calc(var(--spacing) * 5);
   }
   .w-5\/6 {
     width: calc(5 / 6 * 100%);
@@ -255,17 +246,11 @@
   .w-full {
     width: 100%;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .rotate-45 {
     rotate: 45deg;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -299,10 +284,6 @@
   }
   .rounded-md {
     border-radius: var(--radius-md);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-4 {
     border-style: var(--tw-border-style);
@@ -425,13 +406,6 @@
   .text-white {
     color: var(--color-white);
   }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -456,9 +430,6 @@
     }
     .hover\:border-gray-200:hover {
       border-color: var(--color-gray-200);
-    }
-    .hover\:border-red-500:hover {
-      border-color: var(--color-red-500);
     }
     .hover\:bg-white:hover {
       background-color: var(--color-white);
@@ -537,6 +508,9 @@
     }
   }
   @media (width >= 80rem) {
+    .xl\:w-4\/5 {
+      width: calc(4 / 5 * 100%);
+    }
     .xl\:text-2xl {
       font-size: var(--text-2xl);
       line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -594,11 +568,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -613,7 +582,6 @@
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
       --tw-duration: initial;
     }
   }
