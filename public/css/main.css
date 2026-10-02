@@ -9,8 +9,10 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-yellow-400: oklch(85.2% 0.199 91.936);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-black: #000;
     --color-white: #fff;
@@ -223,6 +225,9 @@
   .table {
     display: table;
   }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
@@ -252,6 +257,12 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .rotate-45 {
+    rotate: 45deg;
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .resize {
     resize: both;
@@ -300,6 +311,21 @@
   .border-8 {
     border-style: var(--tw-border-style);
     border-width: 8px;
+  }
+  .border-t-\[5px\] {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 5px;
+  }
+  .border-r-\[5px\] {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 5px;
+  }
+  .border-solid {
+    --tw-border-style: solid;
+    border-style: solid;
+  }
+  .border-amber-300 {
+    border-color: var(--color-amber-300);
   }
   .border-transparent {
     border-color: transparent;
@@ -358,6 +384,9 @@
   .px-16 {
     padding-inline: calc(var(--spacing) * 16);
   }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
@@ -366,9 +395,6 @@
   }
   .py-28 {
     padding-block: calc(var(--spacing) * 28);
-  }
-  .pt-10 {
-    padding-top: calc(var(--spacing) * 10);
   }
   .pt-52 {
     padding-top: calc(var(--spacing) * 52);
@@ -411,6 +437,11 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -420,6 +451,15 @@
     transition-duration: 500ms;
   }
   @media (hover: hover) {
+    .group-hover\:border-red-500:is(:where(.group):hover *) {
+      border-color: var(--color-red-500);
+    }
+    .hover\:border-gray-200:hover {
+      border-color: var(--color-gray-200);
+    }
+    .hover\:border-red-500:hover {
+      border-color: var(--color-red-500);
+    }
     .hover\:bg-white:hover {
       background-color: var(--color-white);
     }
@@ -496,6 +536,17 @@
       justify-content: flex-start;
     }
   }
+  @media (width >= 80rem) {
+    .xl\:text-2xl {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+    @media (hover: hover) {
+      .xl\:group-hover\:ml-4:is(:where(.group):hover *) {
+        margin-left: calc(var(--spacing) * 4);
+      }
+    }
+  }
   @media (width >= 96rem) {
     .\32 xl\:w-5\/6 {
       width: calc(5 / 6 * 100%);
@@ -513,6 +564,26 @@
       color: var(--color-yellow-500);
     }
   }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-border-style {
   syntax: "*";
@@ -535,6 +606,11 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-outline-style: solid;
